@@ -1,0 +1,4 @@
+console.log("%c 名称 %c so ","padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060","padding: 1px; border-radius: 0 3px 3px 0; color: #fff; background: #42C040")
+console.log("%c 版本 %c v1.0.0 ","padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060","padding: 1px; border-radius: 0 3px 3px 0; color: #fff; background: #1475B2")
+console.log("%c 作者 %c EmptyG2018 ","padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060","padding: 1px; border-radius: 0 3px 3px 0; color: #fff; background: #2879FF")
+console.log("%c Github %c https://github.com/EmptyG2018/so-browser-plugin ","padding: 1px; border-radius: 3px 0 0 3px; color: #fff; background: #606060","padding: 1px; border-radius: 0 3px 3px 0; color: #fff; background: #E78270;")

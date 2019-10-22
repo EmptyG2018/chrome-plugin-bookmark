@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="newtab.css" type="text/css" />
+		<script src="jquery-3.4.1.min.js"></script>
+	</head>
+	<body>
+		<div class="window">
+			<div id="bg" class="bg">
+				<div class="tip">背景图片来源于必应，本站不商业用途</div>
+			</div>
+			<div class="overlay"></div>
+			<div class="search">
+				<div class="search-class">
+					<div class="search-class-val" data-so-active="baidu"><img src="images/so-baidu.png" /></div>
+					<div class="search-class-dropbox">
+						<div class="search-class-dropbox-content">
+							<div class="item" data-so-item="baidu">
+								<div class="so-icon"><img src="images/so-baidu.png" /></div>
+								<div class="so-tit">百度</div>
+							</div>
+							<div class="item" data-so-item="google">
+								<div class="so-icon"><img src="images/so-google.png" /></div>
+								<div class="so-tit">Google</div>
+							</div>
+							<div class="item" data-so-item="sogou">
+								<div class="so-icon"><img src="images/so-sogou.png" /></div>
+								<div class="so-tit">搜狗</div>
+							</div>
+							<div class="item" data-so-item="360">
+								<div class="so-icon"><img src="images/so-360.png" /></div>
+								<div class="so-tit">360</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<input id="search" class="search-text" type="text" placeholder="输入搜索关键词" autocomplete="off" />
+				<div id="search_go" class="search-go">搜索一下</div>
+			</div>
+		</div>
+		<script src="newtab.js"></script>
+	</body>
+</html>
