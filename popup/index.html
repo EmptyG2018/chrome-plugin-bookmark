@@ -4,39 +4,78 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="../normalize.css" type="text/css" />
 		<link rel="stylesheet" href="popup.css" type="text/css" />
-		<script src="../jquery-3.4.1.min.js"></script>
-		<script src="../config.js"></script>
 	</head>
 	<body>
-		<div class="popup-box">
-			<div class="login">
-				<div class="tit">欢迎回来！</div>
-				<div class="form-item">
-					<div class="form-item-icon user"></div>
-					<div class="form-item-input">
-						<input id="login-input-email" type="text" placeholder="请输入账号" />
+		<div id="app" class="popup-box">
+			<div class="mask" v-show="loading"></div>
+			<div class="mask-loading"v-show="loading">
+				<div class="loading">
+					<div class="box a"></div>
+					<div class="bs">
+						<div class="box b"></div>
+						<div class="box b"></div>
+						<div class="box b"></div>
+						<div class="box b"></div>
 					</div>
-				</div>
-				<div class="form-item">
-					<div class="form-item-icon pwd"></div>
-					<div class="form-item-input">
-						<input id="login-input-pwd" type="password" placeholder="请输入密码" />
-					</div>
-				</div>
-				<div class="form-item">
-					<button id="login-sub"> - ></button>
 				</div>
 			</div>
-			<div class="bookmark">
-				<div class="tit">书签</div>
-				<div class="list">
-					<div class="item">
-					<div class="icon">
-						<div class="null-img"></div>
-					</div>
-					<div class="name"><a href="https://www.baidu.com" target="_blank">JSRUN编辑器, 在线js调试运行测试,HTML/JS/CSS在线编辑器,Javascript、VUE、ES6在线运行</a></div>
+			<div class="login" v-if="!token">
+				<div class="tit">欢迎回来！</div>
+				<div class="form-item">
+					<div class="form-item-control">
+						<div class="form-item-icon user"></div>
+						<div class="form-item-input">
+							<input type="text" v-model="email" placeholder="请输入账号" />
+						</div>
+						<div class="form-item-error" v-show="emailErr">{{emailErr}}</div>
 					</div>
 				</div>
+				<div class="form-item">
+					<div class="form-item-control">
+						<div class="form-item-icon pwd"></div>
+						<div class="form-item-input">
+							<input type="password" v-model="pwd" placeholder="请输入密码" />
+						</div>
+						<div class="form-item-error" v-show="pwdErr">{{pwdErr}}</div>
+					</div>
+				</div>
+				<button class="block-btn" @click="loginSubmit"> - ></button>
+			</div>
+			<div class="home" v-if="token && !ok">
+				<div class="tit">新增书签</div>
+				<div class="form-item">
+					<div class="form-item-control">
+						<div class="form-item-icon tit"></div>
+						<div class="form-item-input">
+							<input type="text" v-model="bookmark" placeholder="请输入书签名称" />
+						</div>
+					</div>
+				</div>
+				<div class="form-item">
+					<div class="form-item-control">
+						<div class="form-item-icon url"></div>
+						<div class="form-item-input">
+							<input type="text" v-model="url" placeholder="请输入书签url" />
+						</div>
+					</div>
+				</div>
+				<button class="block-btn" @click="saveSubmit">保存</button>
+			</div>
+			<div class="ok" v-if="token && ok === 1">
+				<div class="result">
+					<img class="state-icon" src="../images/icon-check.png" />
+					<div class="state-tit">新增成功</div>
+					<div class="state-msg">该条记录已保存到您的账户</div>
+				</div>
+				<button class="block-btn" @click="cancel">返回</button>
+			</div>
+			<div class="ok" v-if="token && ok === 2">
+				<div class="result">
+					<img class="state-icon" src="../images/icon-error.png" />
+					<div class="state-tit">新增失败</div>
+					<div class="state-msg">请检查您的网络状态</div>
+				</div>
+				<button class="block-btn" @click="cancel">返回</button>
 			</div>
 			<!-- <div class="help">更多功能正在更新中...</div> -->
 			<div style="margin-bottom: 10px"></div>
@@ -44,6 +83,7 @@
 				<div class="logo"><img src="../images/logo128.png" width="12px" height="12px" />&nbsp;纸飞机 v1.0.0</div>
 			</div>
 		</div>
+		<script src="../vue.min.js"></script>
 		<script src="popup.js"></script>
 	</body>
 </html>

@@ -1,57 +1,212 @@
-.popup-box{
+html, body{
+	position: relative;
 	box-sizing: border-box;
 	width: 240px;
+	height: 258px;
+	background-color: #fff;
+	margin: 0;
+}
+ .popup-box{
+	position: relative;
+	box-sizing: border-box;
+	margin: 0;
 	padding: 16px;
+	width: 100%;
+	height: 100%;
 	background-color: #FFF;
 }
-.help{
-	text-align: center;
-	padding: 4px 8px;
-	font-size: 14px;
-	color: #333;
+.login, .home, .ok, .error{
+	width: 100%;
+	height: 196px;
 }
-.popup-box .login .tit{
+.mask{
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, .8);
+}
+.mask-loading{
+	z-index: 1001;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+.loading{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -54px;
+	margin-top: -8px;
+	display: flex;
+	justify-content: space-between;
+	width: 108;
+	height: 16px;
+}
+.loading .box{
+	position: relative;
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+	box-shadow: 0 0 8px rgba(255, 255, 255, .2);
+	animation: 1.5s ease-in-out infinite alternate;
+}
+.loading .box.a{
+	background-color: #3385ff;
+	animation-name: slide;
+}
+
+.loading .bs{
+	display: flex;
+	width: 86px;
+	justify-content: space-between;
+}
+.loading .bs .b{
+	background-color: #91BEFF;
+}
+
+.bs .box:nth-child(1){
+	animation-name: jump-off-1;
+}
+.bs .box:nth-child(2){
+	animation-name: jump-off-2;
+}
+.bs .box:nth-child(3){
+	animation-name: jump-off-3;
+}
+.bs .box:nth-child(4){
+	animation-name: jump-off-4;
+}
+
+@keyframes slide{
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(92px);
+	}
+}
+
+@keyframes jump-off-1{
+	0%, 15% {
+		transform: rotate(0deg);
+	}
+	35%, 100% {
+		transform-origin: -50% center;
+		transform: rotate(-180deg);
+	}
+}
+
+@keyframes jump-off-2{
+	0%, 30% {
+		transform: rotate(0deg);
+	}
+	50%, 100% {
+		transform-origin: -50% center;
+		transform: rotate(-180deg);
+	}
+}
+
+@keyframes jump-off-3{
+	0%, 45% {
+		transform: rotate(0deg);
+	}
+	65%, 100% {
+		transform-origin: -50% center;
+		transform: rotate(-180deg);
+	}
+}
+
+@keyframes jump-off-4{
+	0%, 60% {
+		transform: rotate(0deg);
+	}
+	80%, 100% {
+		transform-origin: -50% center;
+		transform: rotate(-180deg);
+	}
+}
+
+.result{
+	text-align: center;
+	width: 100%;
+	height: 154px;
+}
+.result .state-icon{
+	vertical-align: top;
+	width: 54px;
+	height: 54px;
+	margin: 20px 0;
+}
+.result .state-tit{
 	font-size: 18px;
+	height: 20px;
+	line-height: 20px;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+.result .state-msg{
+	font-size: 14px;
+	height: 18px;
+	line-height: 18px;
+	color: #888;
+}
+
+.tit{
+	font-size: 18px;
+	height: 20px;
+	line-height: 20px;
 	color: #000;
 	font-weight: bold;
 	margin-bottom: 26px;
 }
-.popup-box .login .form-item{
+.form-item{
+	width: 100%;
+	padding-bottom: 22px;
+}
+.form-item-control{
+	position: relative;
 	display: flex;
 	width: 100%;
 	height: 32px;
-	background-color: #f8f8f8;
-	margin-bottom: 16px;
-	border-radius: 4px;
+	background-color: #F1F3F4;
+	border-radius: 4px;	
 }
-.popup-box .login .form-item .form-item-icon{
+.form-item-icon{
 	width: 32px;
 	height: 32px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 56%;
+	background-size: 56%;	
 }
-.popup-box .login .form-item .form-item-input{
+.form-item-icon.user{
+	background-image: url('../images/icon-uer.png')
+
+}
+.form-item-icon.pwd{
+	background-image: url('../images/icon-pwd.png')
+}
+.form-item-icon.tit{
+	background-image: url('../images/icon-title.png')
+}
+.form-item-icon.url{
+	background-image: url('../images/icon-url.png')
+}
+.form-item-input{
 	flex: 1;
+	flex-shrink: 0;
 	overflow: hidden;
-	padding-right: 10px;
+	padding-right: 10px;	
 }
-.popup-box .login .form-item button{
-	background-color: #3385ff;
-	color: #fff;
-	outline: none;
-	border: 0;
-	padding: 0;
-	margin: 0;
-	width: 100%;
-	height: 32px;
-	border-radius: 4px;
-	cursor: pointer;
-}
-.popup-box .login .form-item button:active{
-	background-color: #64a2ff;
-}
-.popup-box .login .form-item .form-item-input input{
+.form-item-input input{
 	background-color: transparent;
 	outline: none;
 	border: 0;
@@ -60,64 +215,53 @@
 	width: 100%;
 	height: 32px;
 	line-height: 32px;
-	color: #666;
-}
-.popup-box .login .form-item .form-item-icon.user{
-	background-image: url('../images/icon-uer.png')
-
-}
-.popup-box .login .form-item .form-item-icon.pwd{
-	background-image: url('../images/icon-pwd.png')
-}
-
-.popup-box .bookmark .tit{
-	font-size: 18px;
-	color: #000;
-	font-weight: bold;
-	margin-bottom: 26px;
-}
-.popup-box .bookmark .list .item{
-	display: flex;
-	align-items: center;
-}
-.popup-box .bookmark .list .item .icon{
-	width: 24px;
-	height: 24px;
-	margin-right: 10px;
-}
-.popup-box .bookmark .list .item .icon .null-img{
-	width: 24px;
-	height: 24px;
-	text-align: center;
-	line-height: 24px;
-	background-color: #666;
-	color: #fff;
-}
-.popup-box .bookmark .list .item .icon .null-img:after{
-	display: inline;
-	content: "A";
-}
-.popup-box .bookmark .list .item .name{
-	flex: 1;
-	line-height: 20px;
+	color: #333;
 	font-size: 12px;
-	overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+}
+.form-item-error{
+	position: absolute;
+	top: 32px;
+	left: 0;
+	width: 100%;
+	line-height: 1;
+	font-size: 12px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-top: 4px;
+	color: #F56C6C;
 }
 
-.popup-box .popup-footer{
+.help{
+	text-align: center;
+	padding: 4px 8px;
+	font-size: 14px;
+	color: #333;
+}
+.block-btn{
+	background-color: #3385ff;
+	color: #fff;
+	outline: none;
+	border: 0;
+	padding: 0;
+	margin: 10px 0 0 0;
+	width: 100%;
+	height: 32px;
+	border-radius: 4px;
+	cursor: pointer;	
+}
+.block-btn:active{
+	background-color: #64a2ff;
+}
+.popup-footer{
 	text-align: right;
 }
-.popup-box .popup-footer .logo{
-	float: inline-block;
+.popup-footer .logo{
+	display: inline-block;
+	height: 20px;
 	line-height: 20px;
 	font-size: 12px;
 	color: #666;
 }
-.popup-box .popup-footer .logo img{
+.popup-footer .logo img{
 	vertical-align: middle;
 }

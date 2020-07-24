@@ -2,9 +2,9 @@
 	<head>
 		<title>主页 - 没事搜一搜</title>
 		<meta charset="utf-8" />
-		<link rel="shortcut icon" href="images/favicon.ico" />
-		<link rel="stylesheet" href="normalize.css" type="text/css" />
-		<link rel="stylesheet" href="newtab.css" type="text/css" />
+		<link rel="shortcut icon" href="../images/favicon.ico" />
+		<link rel="stylesheet" href="../normalize.css" type="text/css" />
+		<link rel="stylesheet" href="./newtab.css" type="text/css" />
 	</head>
 	<body>
 		<div id="app">
@@ -26,12 +26,12 @@
 							</div>
 						</div>
 					</div>
-					<input class="search-text" v-model.trim="searchText" @keyup.13="searchClick" type="text" placeholder="输入搜索关键词" autocomplete="off" autofocus />
+					<input class="search-text" v-model.trim="searchText" @keyup.enter="searchClick" type="text" placeholder="输入搜索关键词" autocomplete="off" autofocus />
 					<div class="search-go" @click="searchClick">搜索一下</div>
 				</div>
 			</div>
 		</div>
-		<script src="vue.min.js"></script>
-		<script src="newtab.js"></script>
+		<script src="../vue.min.js"></script>
+		<script src="./newtab.js"></script>
 	</body>
 </html>

@@ -1,17 +1,25 @@
 {
-  "name": "so",
+  "name": "纸飞机",
   "version": "1.0.0",
   "description": "一个简洁且好看的搜索导航",
   "background": {
-    "scripts": ["background/bg.js","background/log.js"]
+    "scripts": ["background/bg.js"]
   },
 	"permissions": [
+		"http://hoos.free.vipnps.vip/",
     "contextMenus",
 		"tabs"
-  ],
+	],
+	
+	"icons": {
+		"16": "images/logo128.png",
+		"48": "images/logo128.png",
+		"128": "images/logo128.png"
+	},
+
 	"options_page": "options/options.html",
   "chrome_url_overrides": {
-    "newtab": "newtab.html"
+    "newtab": "newtab/newtab.html"
   },
 	"browser_action": {
 		"default_icon": "images/logo128.png", 
@@ -21,9 +29,10 @@
 	"content_scripts": [
 		{
 			"matches": ["http://*/*", "https://*/*"],
-			"js": ["content/log1.js"]
+			"css": ["content/content.css"],
+			"js": ["vue.min.js", "content/content.js"]
 		}
 	],
-  "manifest_version": 2,
+	"manifest_version": 2,
 	"content_security_policy": "style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-eval' 'self'; object-src 'self' ;"
 }
