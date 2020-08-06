@@ -66,8 +66,8 @@ const app = new Vue({
 		searchClick() {
 			let searchText = this.searchText;
 			if(!searchText.trim()) return ;
-			let url = this.currentSearchObj.url + searchText;
-			window.open(encodeURIComponent(url));
+			let url = this.currentSearchObj.url + encodeURIComponent(searchText);
+			window.open(url);
 		}
 	}
 })
