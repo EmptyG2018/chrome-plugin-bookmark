@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../normalize.css" type="text/css" />
+	<link rel="stylesheet" href="bookmark.css" type="text/css" />
+	<title>书签管理 - 纸飞机</title>
+	<link 
+</head>
+<body>
+	<div id="app">
+		<div class="main">
+			<div class="tit">书签列表</div>
+			<div class='fly-bookmark-list'>
+				<div class='fly-bookmark-item' v-for='bookmark in bookmarks' :key='bookmark.id'>
+					<div class='fly-bookmark-cell'>
+						<div class='fly-bookmark-tit'>{{bookmark.tit}}</div>
+						<div class='fly-bookmark-url'>{{bookmark.url}}</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<script src="../vue.min.js"></script>
+	<script src="./bookmark.js"></script>
+</body>
+</html>

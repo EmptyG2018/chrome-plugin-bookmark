@@ -1,0 +1,73 @@
+html, body, #app{
+	z-index: 1;
+	position: relative;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+body{
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+#app{
+	background-color: #f5f5f5;
+}
+#app::before, #app::after{
+	content: "";
+	display: table;
+}
+.main{
+	box-sizing: border-box;
+	width: 960px;
+	margin: 32px auto;
+	padding: 24px;
+	background-color: #fff;
+	border-radius: 4px;
+}
+.main .tit{
+	font-size: 18px;
+	height: 20px;
+	line-height: 20px;
+	color: #000;
+	font-weight: bold;
+	margin-bottom: 26px;
+}
+
+.fly-bookmark-list{
+	text-align: left;
+}
+.fly-bookmark-item{
+	box-sizing: border-box;
+	display: flex;
+	width: 100%;
+	margin-bottom: 8px;
+	cursor: pointer;
+}
+.fly-bookmark-cell{
+	flex: 1;
+	flex-shrink: 0;
+	overflow: hidden;
+}
+.fly-bookmark-tit{
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 700;
+	color: #333;
+}
+.fly-bookmark-tit:hover{
+	color: #409eff;
+}
+.fly-bookmark-url{
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height: 18px;
+	font-size: 12px;
+	color: #9195A3;
+}
+.fly-bookmark-url:hover{
+	text-decoration:underline;
+}
