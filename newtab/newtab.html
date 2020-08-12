@@ -9,11 +9,11 @@
 	<body>
 		<div id="app">
 			<div class="window">
-				<div class="bg" :style="{ backgroundImage: bgUrl }">
+				<div class="bg" :style="{ backgroundImage: currentBgUrlCss }">
 					<div class="tip">
 						背景图片来源于必应，本站不商业用途</div>
 				</div>
-				<div class="overlay"></div>
+				<div class="overlay" :style="{ backgroundColor: overlayBgColor }"></div>
 				<div class="search">
 					<div class="search-class">
 						<div class="search-class-val"><img :src="currentSearchObj.img" /></div>

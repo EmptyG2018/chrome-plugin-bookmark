@@ -4,7 +4,9 @@
   "description": "一个简洁且好看的搜索导航",
   "background": {
     "scripts": ["background/bg.js"]
-  },
+	},
+	
+	"omnibox": {"keyword": "纸飞机"},
 	"permissions": [
 		"http://hoos.free.vipnps.vip/",
     "contextMenus",

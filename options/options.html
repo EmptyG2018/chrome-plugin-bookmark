@@ -5,15 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>个性化 - 纸飞机</title>
   <link rel="stylesheet" href="../normalize.css" type="text/css" />
+  <link rel="stylesheet" href="../elementUI/index.css" type="text/css" />
   <link rel="stylesheet" href="./options.css" type="text/css" />
 </head>
 <body>
   <div id="app">
     <div class="main">
-
+      <el-form size="small" :model="settings" label-width="160px">
+        <el-form-item label="默认搜索引擎">
+          <el-row>
+            <el-col :offset="1" :span="20">
+              <el-radio-group v-model="settings.search" @change="handleSearchChange">
+                <el-radio size="small" v-for="search in searchEngine" :key="search.type" :label="search.type">{{search.tit}}</el-radio>
+              </el-radio-group>
+            </el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="切换搜索并保存">
+          <el-row>
+            <el-col :offset="1" :span="20">
+              <el-switch v-model="settings.toggleSave" @change="handleToggleSaveChange" />
+            </el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="每日更新壁纸">
+          <el-row>
+            <el-col :offset="1" :span="20">
+              <el-switch v-model="settings.dayUpdateBg" @change="handleDayUpdateBgChange" />
+            </el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="默认壁纸">
+          <el-row>
+            <el-col :offset="1" :span="20">
+              <el-input type="text" v-model="settings.bgUrl" @input="handleBgUrlChange" placeholder="输入在线壁纸地址" />
+            </el-col>
+          </el-row>
+        </el-form-item>
+        <el-form-item label="背景遮罩透明度">
+          <el-row>
+            <el-col :offset="1" :span="20">
+              <el-slider v-model="settings.bgOverlayOpa" @change="handleBgOverlayOpaChange"></el-slider>
+            </el-col>
+          </el-row>
+        </el-form-item>
+      </el-form>
     </div>
   </div>
   <script src="../vue.min.js"></script>
+  <script src="../elementUI/index.js"></script>
   <script src="./options.js"></script>
 </body>
 </html>
